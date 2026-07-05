@@ -1,0 +1,14 @@
+name: Sync fork with upstream
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"  # 每 6 小时运行一次
+  workflow_dispatch:       # 允许手动触发
+
+jobs:
+  sync-fork:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: thiagokokada/merge-upstream@v1
+        with:
+          branch: main  # 要同步的分支名称
